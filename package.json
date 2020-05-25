@@ -1,0 +1,66 @@
+{
+	"name": "theiatestsearch",
+	"publisher": "theiatestsearch",
+	"displayName": "Theia Test Extension",
+	"description": "Theia Search Test",
+	"license": "SEE LICENSE IN LICENSE",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.45.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:theia.seach.test.start"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+			  "command": "theia.seach.test.start",
+			  "title": "SearchTest: Search"
+			}
+		],
+		"views": {
+			"theia-search-test": [
+				{
+				"id": "theia.seach.test.treeview",
+				"name": "Theia Search Test"
+				}
+			]
+			},
+		"viewsContainers": {
+			"activitybar": [
+				{
+				"id": "theia-search-test",
+				"title": "Theia Search Test",
+				"icon": "assets/code-working-outline.svg"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile",
+		"test": "node ./out/test/runTest.js",
+		"package": "./node_modules/.bin/vsce package --yarn --out search-test-theia.vsix"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.45.0",
+		"vsce": "^1.73.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"vscode-uri": "^1.0.8"
+	}
+}
